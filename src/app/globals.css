@@ -67,6 +67,15 @@ h4 {
   border-radius: 10px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
 }
+
+@media screen and (max-width: 768px) {
+  /* Estilos que se aplicarán cuando la resolución sea menor o igual a 768px */
+  .card-portada {
+    position: block;
+    background-color: blue;
+  }
+}
+@media screen and (min-width: 768px) and (orientation: landscape) {
 .card-portada {
   position: absolute;
   z-index: 0;
@@ -81,10 +90,11 @@ h4 {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
   transition: transform 0.3s ease; 
 }
-
+}
 .card-detalle {
   border-radius: 15px;
   color: black;
+  border: 1px solid black;
   font-size: large;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
   

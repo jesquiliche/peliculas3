@@ -11,7 +11,7 @@ const ListaPeliculas = async ({data,title}) => {
         <div className="row mt-5">
           {data.map((p) => (
             
-            <div key={p.id} className="card col-lg-2 mx-auto mt-3 px-1">
+            <div key={p.id} className="card col-lg-2 col-md-3 col-sm-6 mx-auto mt-3 px-1">
               <div className="card-header text-center">
               <Link href={`/Detalle/${p.id}`}>
                 <img src={`https://image.tmdb.org/t/p/w154${p.poster_path}`} alt={p.title} />

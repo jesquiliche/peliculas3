@@ -25,16 +25,18 @@ const CargarPeliculas = async () => {
 
   return (
     <div className="container-fluid mt-5">
+      
       <div className="container-text col-lg-6 mx-auto mt-4">
+      
         <h4 className="text-center text-white">
           Top 5 películas más populares
         </h4>
+    
       </div>
-
       <div className="row mt-5">
         {peliculas.results.slice(0, 5).map((p) => (
           <>
-            <div className="card card-portada bg-white  col-lg-2 m-2 mt-3 px-1">
+            <div className="card card-portada bg-white  col-lg-2 col-md-3 col-sm-4 m-2 mt-3 px-1">
               <div className="card-header text-center">
               <Link href={`/Detalle/${p.id}`}>
                 <img

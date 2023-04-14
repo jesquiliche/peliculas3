@@ -47,7 +47,7 @@ const ObtenerDetalle = async ({ id }) => {
   if (movieDetails.videos.results.length > 0) {
     videoUrl = `https://www.youtube.com/embed/${movieDetails.videos.results[0].key}`;
   }
-  
+
   console.log("Entro");
   console.log(credits.cast);
   const director = credits.cast.filter(
@@ -68,11 +68,19 @@ const ObtenerDetalle = async ({ id }) => {
 
           <div className="card-body">
             <div className="row">
-              <div className="col-lg-3">
-                <img
-                  src={`https://image.tmdb.org/t/p/w342/${movieDetails.poster_path}`}
-                  alt={movieDetails.title}
-                />
+              <div className="col-lg-3 ">
+                <div style={{ maxWidth: "342px", margin: "3 auto" }}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w342/${movieDetails.poster_path}`}
+                    alt={movieDetails.title}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      borderRadius: "10px",
+                      marginLeft: "30px"
+                    }}
+                  />
+                </div>
               </div>
               <div className="col-lg-9 px-5">
                 <b>Fecha : </b>
@@ -84,7 +92,7 @@ const ObtenerDetalle = async ({ id }) => {
                 <p className="text-sm">{movieDetails.overview}</p>
 
                 <b>Director : </b>
-               {/*}{director.cast.map((person) => person.name)} */}
+                {/*}{director.cast.map((person) => person.name)} */}
 
                 <br />
                 <b>Actores :</b>
@@ -99,17 +107,36 @@ const ObtenerDetalle = async ({ id }) => {
             </div>
             <div className="row mt-4">
               {videoUrl && (
-                <div className="mx-auto">
-                  <iframe
-                    width="1250"
-                    height="700"
-                    src={videoUrl}
-                    title="Trailer de la película"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                    style={{ borderRadius: "10px" }}
-                  ></iframe>
+                <div
+                  style={{
+                    width: "100%",
+                    maxWidth: "1250px",
+                    margin: "0 auto",
+                  }}
+                >
+                  <div
+                    style={{
+                      position: "relative",
+                      paddingBottom: "56.25%",
+                      height: 0,
+                    }}
+                  >
+                    <iframe
+                      src={videoUrl}
+                      title="Trailer de la película"
+                      frameborder="0"
+                      allow="autoplay; encrypted-media"
+                      allowfullscreen
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "10px",
+                      }}
+                    ></iframe>
+                  </div>
                 </div>
               )}
             </div>
