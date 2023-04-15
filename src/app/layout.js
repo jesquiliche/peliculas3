@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <head>
     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-4fvIe06tq5qz/zd8tS2Yt4RnGmDgIeOVm8nJPG4+yaw+RWzgqDCdLO5MCQvS2ewIkwCEQxRS+ZG28JNvQUdNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"/>
       <script defer

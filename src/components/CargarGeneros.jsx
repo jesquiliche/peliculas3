@@ -25,12 +25,15 @@ const fetchPeliculas = async (id) => {
 };
 
 const CargarGeneros = async ({ id }) => {
-  
-
-
-  
   const peliculas = await fetchPeliculas(id);
-  return <ListaPeliculas data={peliculas.results} />;
+  const nombre = await obtenerNombreCategoria(id);
+
+  return (
+    <>
+    
+    <ListaPeliculas data={peliculas.results} />;
+    </>
+  )
 };
 
 export default CargarGeneros;
