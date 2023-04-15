@@ -45,7 +45,13 @@ const CargarGeneros = async ({ id }) => {
   const peliculas = await fetchPeliculas(id);
   const nombre = await obtenerNombreCategoria(id);
 
-  return <ListaPeliculas data={peliculas.results} />;
+  return (
+    <>
+    <button>Anterior</button>
+    <button>Siguiente</button>
+    <ListaPeliculas data={peliculas.results} />;
+    </>
+  )
 };
 
 export default CargarGeneros;

@@ -4,72 +4,96 @@ import Link from "next/link";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
-  const handleSearch = async (e) => {
-    
+  const handleSearch = async () => {
     try {
-      const results = [];
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/search/movie`,
+        {
+          params: {
+            api_key: "25349d5497c8655f081fc1abfbd5aa08",
+            query: searchTerm,
+            language: "es-ES",
+            page: currentPage,
+          },
+        }
+      );
 
-      for (let page = 1; page <= 3; page++) {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/search/movie`,
-          {
-            params: {
-              api_key: "25349d5497c8655f081fc1abfbd5aa08",
-              query: searchTerm,
-              language: "es-ES",
-              page: page,
-            },
-          }
-        );
-        results.push(...response.data.results);
-      }
-  
-      await setSearchResults(results.slice(0, 100));  
+      await setSearchResults(response.data.results);
+      await setTotalPages(response.data.total_pages);
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
 
-    
-  }, []);
+  const handleNextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const handleSearchButtonClick = () => {
+    setCurrentPage(1);
+    handleSearch();
+  };
+
+  useEffect(() => {
+    handleSearch();
+  }, [currentPage]);
 
   return (
     <div className="container-fluid my-4 mt-5  col-lg-12 mx-auto">
       <div className="row ">
         <div className="col">
           <div className="py-2 p-4 mt-3">
-          <h1 className="text-center mb-4 mt-3">Busca películas</h1>
-          
-            <label>Por genero,título o director</label>
-          
-          <div className="input-group mb-3">
-           
-            
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Buscar por título, género o director"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button
-              className="btn btn-primary ml-2"
-              type="button"
-              onClick={handleSearch}
-            >
-              Buscar
-            </button>
-          </div>
+            <h1 className="text-center mb-4 mt-3">Busca películas</h1>
+
+            <label>Por género,título o director</label>
+
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Buscar por título, género o director"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button
+                className="btn btn-primary ml-2"
+                type="button"
+                onClick={handleSearchButtonClick}
+              >
+                Buscar
+              </button>
+            </div>
           </div>
           <div className="container-fluid mt-5">
-          
+            <div className="row col-lg-4 mx-auto">
+              <button
+                className="btn btn-outline-dark col-lg-3 mx-auto"
+                onClick={handlePrevPage}
+                disabled={currentPage === 1}
+              >
+                <i className="fas fa-arrow-left"></i> Anterior
+              </button>
+              
+                {currentPage} de {totalPages + " "}
+              
+              <button
+                className="btn btn-outline-dark col-lg-3"
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+              >
+                Siguiente <i className="fas fa-arrow-right"></i>
+              </button>
+            </div>
             <div className="row mt-5">
               {searchResults.map((p) => (
                 <div
