@@ -47,6 +47,11 @@ const Navigation = async () => {
                   <Link href="/">Inicio</Link>
                 </a>
               </li>
+              <li className="nav-item">
+                <a className="nav-link" aria-current="page">
+                  <Link href="/Busqueda">Buscar...</Link>
+                </a>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"

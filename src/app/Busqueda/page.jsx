@@ -3,14 +3,14 @@
 import Link from "next/link";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ListaPeliculas from "@/components/ListaPeliculas";
+
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async (e) => {
-    alert(searchTerm);
+    
     try {
       const results = [];
 
@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <div className="container my-4 mt-5  col-lg-12 mx-auto">
-      <div className="row">
+      <div className="row ">
         <div className="col">
           <h1 className="text-center mb-4 mt-3">Busca películas</h1>
           <div className="input-group mb-3">
