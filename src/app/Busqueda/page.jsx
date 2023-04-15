@@ -44,7 +44,7 @@ const Home = () => {
     <div className="container-fluid my-4 mt-5  col-lg-12 mx-auto">
       <div className="row ">
         <div className="col">
-          <div className="card-busqueda py-2 p-4 mt-3">
+          <div className=" py-2 p-4 mt-3">
           <h1 className="text-center mb-4 mt-3">Busca películas</h1>
           <div className="input-group mb-3">
             <input
