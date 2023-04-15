@@ -14,7 +14,7 @@ const Home = () => {
     try {
       const results = [];
 
-      for (let page = 1; page <= 5; page++) {
+      for (let page = 1; page <= 3; page++) {
         const response = await axios.get(
           `https://api.themoviedb.org/3/search/movie`,
           {
