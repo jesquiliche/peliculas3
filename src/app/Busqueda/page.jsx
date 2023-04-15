@@ -47,8 +47,10 @@ const Home = () => {
           <div className="py-2 p-4 mt-3">
           <h1 className="text-center mb-4 mt-3">Busca películas</h1>
           <div className="input-group mb-3">
+            <div>
             <label>Por genero,título o director</label>
-            <br/>
+            </div>
+            
             <input
               type="text"
               className="form-control"
