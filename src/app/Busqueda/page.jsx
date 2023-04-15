@@ -48,6 +48,7 @@ const Home = () => {
           <h1 className="text-center mb-4 mt-3">Busca películas</h1>
           <div className="input-group mb-3">
             <label>Por genero,título o director</label>
+            <br/>
             <input
               type="text"
               className="form-control"
