@@ -117,18 +117,13 @@ const Navigation = async () => {
                   </div>
                 </ul>
               </li>
+              <li className="nav-item">
+                <a className="nav-link" aria-current="page">
+                  <Link href="/Actores">Actores</Link>
+                </a>
+              </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Buscar"
-                aria-label="Buscar"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+           
           </div>
         </div>
       </nav>
