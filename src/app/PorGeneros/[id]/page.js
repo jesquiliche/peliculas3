@@ -14,30 +14,18 @@ const Home = ({params}) => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie`,
-        {
-          params: {
-            api_key: "25349d5497c8655f081fc1abfbd5aa08",
-            language: "es-ES",
-            sort_by: "popularity.desc",
-            page: currentPage,
-            with_genres: id,
-          },
-          
-            
-          
-        });
-
-      await setSearchResults(response.data.results);
-      
-      await setTotalPages(response.data.total_pages);
-    
+      const response = await fetch(
+        `https://api.themoviedb.org/3/discover/movie?api_key=25349d5497c8655f081fc1abfbd5aa08&language=es-ES&sort_by=popularity.desc&page=${currentPage}&with_genres=${id}`,
+        { cache: "no-store" }
+      );
+  
+      const data = await response.json();
+      setSearchResults(data.results);
+      setTotalPages(data.total_pages);
     } catch (error) {
       console.log(error);
     }
   };
-
   const handleFirst = () => {
     setCurrentPage(1);
   };
@@ -61,7 +49,7 @@ const Home = ({params}) => {
 
   return (
     <div className="container-fluid mt-5 btn-sm mx-auto">
-    <div className="row col-sm-3 mt-5 mx-auto text-center">
+    <div className="row col-sm-2 mt-5 mx-auto text-center">
       <div className="btn-group mx-auto">
        {/* <button
           className="btn btn-outline-dark btn-sm mx-auto"
