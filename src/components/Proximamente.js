@@ -1,26 +1,19 @@
 import axios from 'axios';
-import ListaPeliculas from './ListaPeliculas';
-
-
+import ListaPeliculas from './ListaPeliculas'
 const fetchPeliculas = async () => {
   try {
-    const respuesta = await axios.get('https://api.themoviedb.org/3/movie/upcoming', {
-      params: {
-        api_key: '25349d5497c8655f081fc1abfbd5aa08',
-        language: 'es-ES',
-        page: 1,
-      },
-      headers: {
-        'Cache-Control': 'no-store',
-      },
-    });
-    return respuesta.data;
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=25349d5497c8655f081fc1abfbd5aa08&language=es-ES&page=1`
+    
+    );
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log(error);
   }
-};  
+};
   
-  const Proximamente = async () => {
+const Proximamente = async () => {
     const peliculas = await fetchPeliculas();
     
     return (
@@ -29,5 +22,5 @@ const fetchPeliculas = async () => {
   };
   
   export default Proximamente;
-  export const dynamic='force-dynamic';
+
   

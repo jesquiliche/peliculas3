@@ -49,7 +49,6 @@ const ObtenerDetalle = async ({ id }) => {
   }
 
   console.log("Entro");
-  console.log(credits.cast);
   const director = credits.cast.filter(
     (persona) => persona.known_for_department === "Directing"
   );
@@ -57,7 +56,7 @@ const ObtenerDetalle = async ({ id }) => {
   const actores = credits.cast.filter(
     (person) => person.known_for_department === "Acting"
   );
-  console.log(actores);
+  
   return (
     <>
       <div className="container-fluid mt-5">
