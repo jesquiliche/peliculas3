@@ -32,7 +32,7 @@ const Home = ({params}) => {
       await setSearchResults(response.data.results);
       
       await setTotalPages(response.data.total_pages);
-      alert(totalPages)
+    
     } catch (error) {
       console.log(error);
     }
