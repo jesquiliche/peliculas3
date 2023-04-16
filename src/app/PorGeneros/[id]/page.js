@@ -48,7 +48,7 @@ const Home = ({params}) => {
   }, [currentPage,actualiza]);
 
   return (
-    <div className="container-fluid mt-5 btn-sm mx-auto">
+    <div className="container mt-5 btn-sm mx-auto">
     <div className="row col-sm-2 mt-5 mx-auto text-center">
       <div className="btn-group mx-auto">
        {/* <button

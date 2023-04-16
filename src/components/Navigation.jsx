@@ -108,9 +108,9 @@ const Navigation = async () => {
                     <div className="col">
                       {categorias.genres.map((c) => (
                         <li key={c.id}>
-                          <a className="dropdown-item">
-                            <Link href={`/PorGeneros/${c.id}`}>{c.name}</Link>
-                          </a>
+                     
+                            <Link className="dropdown-item"  href={`/PorGeneros/${c.id}`}>{c.name}</Link>
+                          
                         </li>
                       ))}
                     </div>
