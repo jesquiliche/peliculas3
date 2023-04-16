@@ -48,7 +48,6 @@ const ObtenerDetalle = async ({ id }) => {
     videoUrl = `https://www.youtube.com/embed/${movieDetails.videos.results[0].key}`;
   }
 
-  console.log("Entro");
   const director = credits.cast.filter(
     (persona) => persona.known_for_department === "Directing"
   );
@@ -56,6 +55,9 @@ const ObtenerDetalle = async ({ id }) => {
   const actores = credits.cast.filter(
     (person) => person.known_for_department === "Acting"
   );
+  const date = new Date(movieDetails.release_date);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formatter = new Intl.DateTimeFormat('es-ES', options);
   
   return (
     <>
@@ -83,7 +85,7 @@ const ObtenerDetalle = async ({ id }) => {
               </div>
               <div className="col-lg-9 px-5">
                 <b>Fecha : </b>
-                {movieDetails.release_date + "    "}
+                {formatter.format(date) + "    "}
                 <b>Géneros :</b>
                 {" " + movieDetails.genres.map((g) => g.name) + " "}
                 <br />
