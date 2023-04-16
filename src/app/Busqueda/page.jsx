@@ -66,7 +66,7 @@ const Home = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               <button
-                className="btn btn-primary ml-2"
+                className="btn btn-primary ml-2 btn-sm"
                 type="button"
                 onClick={handleSearchButtonClick}
               >
@@ -74,26 +74,42 @@ const Home = () => {
               </button>
             </div>
           </div>
-          <div className="container-fluid mt-5">
-            <div className="row col-lg-4 mx-auto">
+          <div className="container-fluid mt-5 btn-sm mx-auto">
+          <div className="row col-sm-3 mx-auto text-center">
+            <div className="btn-group mx-auto">
               <button
-                className="btn btn-outline-dark col-lg-3 mx-auto"
+                className="btn btn-outline-dark btn-sm mx-auto"
+                onClick={()=>setCurrentPage(1)}
+                disabled={currentPage === 1}
+              >
+                {"<<"}
+              </button>
+              <button
+                className="btn btn-outline-dark btn-sm mx-auto"
                 onClick={handlePrevPage}
                 disabled={currentPage === 1}
               >
-                <i className="fas fa-arrow-left"></i> Anterior
+                {"<"}
               </button>
-              
+              <div className="d-flex align-items-center mx-2">
                 {currentPage} de {totalPages + " "}
-              
+              </div>
               <button
-                className="btn btn-outline-dark col-lg-3"
+                className="btn btn-outline-dark btn-sm mx-auto"
                 onClick={handleNextPage}
                 disabled={currentPage === totalPages}
               >
-                Siguiente <i className="fas fa-arrow-right"></i>
+                {">"}
+              </button>
+              <button
+                className="btn btn-outline-dark btn-sm mx-auto"
+                onClick={()=>setCurrentPage(totalPages)}
+                disabled={currentPage === totalPages}
+              >
+                {">>"}
               </button>
             </div>
+</div>
             <div className="row mt-5">
               {searchResults.map((p) => (
                 <div

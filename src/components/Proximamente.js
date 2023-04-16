@@ -11,7 +11,7 @@ const fetchPeliculas = async () => {
         page: 1,
       },
       headers: {
-        'Cache-Control': 'no-cache',
+        'Cache-Control': 'no-store',
       },
     });
     return respuesta.data;
@@ -29,4 +29,5 @@ const fetchPeliculas = async () => {
   };
   
   export default Proximamente;
+  export const dynamic='force-dynamic';
   

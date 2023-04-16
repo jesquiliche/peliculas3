@@ -1,6 +1,8 @@
 import axios from "axios";
 import ListaPeliculas from "./ListaPeliculas";
 
+
+
 const fetchPeliculas = async (id) => {
   try {
     const respuesta = await axios.get(
@@ -13,9 +15,9 @@ const fetchPeliculas = async (id) => {
           page: 1,
           with_genres: id,
         },
-        headers: {
-          "Cache-Control": "no-store",
-        },
+        
+          cache: "no-store",
+        
       }
     );
     return respuesta.data;
@@ -26,7 +28,7 @@ const fetchPeliculas = async (id) => {
 
 const CargarGeneros = async ({ id }) => {
   const peliculas = await fetchPeliculas(id);
-  const nombre = await obtenerNombreCategoria(id);
+
 
   return (
     <>
@@ -37,3 +39,4 @@ const CargarGeneros = async ({ id }) => {
 };
 
 export default CargarGeneros;
+export const dynamic='force-dynamic';
