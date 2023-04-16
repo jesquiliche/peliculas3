@@ -10,6 +10,7 @@ const Home = ({params}) => {
   const [searchResults, setSearchResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [actualiza,setActualiza]=useState(true);
 
   const handleSearch = async () => {
     try {
@@ -24,12 +25,14 @@ const Home = ({params}) => {
             with_genres: id,
           },
           
-            cache: "no-store",
+            
           
         });
 
       await setSearchResults(response.data.results);
+      
       await setTotalPages(response.data.total_pages);
+      alert(totalPages)
     } catch (error) {
       console.log(error);
     }
@@ -48,24 +51,25 @@ const Home = ({params}) => {
 
   const handleLast = async() => {
     await setCurrentPage(totalPages);
+    await setActualiza(!actualiza);
   };
 
   
   useEffect(() => {
     handleSearch();
-  }, [currentPage]);
+  }, [currentPage,actualiza]);
 
   return (
     <div className="container-fluid mt-5 btn-sm mx-auto">
     <div className="row col-sm-3 mt-5 mx-auto text-center">
       <div className="btn-group mx-auto">
-        <button
+       {/* <button
           className="btn btn-outline-dark btn-sm mx-auto"
           onClick={handleFirst}
           disabled={currentPage === 1}
         >
           {"<<"}
-        </button>
+  </button>*/}
         <button
           className="btn btn-outline-dark btn-sm mx-auto"
           onClick={handlePrevPage}
@@ -83,13 +87,13 @@ const Home = ({params}) => {
         >
           {">"}
         </button>
-        <button
+       {/* <button
           className="btn btn-outline-dark btn-sm mx-auto"
           onClick={handleLast}
           disabled={currentPage === totalPages}
         >
           {">>"}
-        </button>
+  </button>*/}
       </div>
     </div>
     <div className="row mt-5">
