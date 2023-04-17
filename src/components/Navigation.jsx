@@ -117,11 +117,7 @@ const Navigation = async () => {
                   </div>
                 </ul>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" aria-current="page">
-                  <Link href="/Actores">Actores</Link>
-                </a>
-              </li>
+              
             </ul>
            
           </div>

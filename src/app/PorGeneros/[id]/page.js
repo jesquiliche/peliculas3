@@ -14,18 +14,31 @@ const Home = ({params}) => {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=25349d5497c8655f081fc1abfbd5aa08&language=es-ES&sort_by=popularity.desc&page=${currentPage}&with_genres=${id}`,
-        { cache: "no-store" }
-      );
+      const apikey = process.env.API_KEY;
+      const options = {
+        method: "GET",
+        url: `https://api.themoviedb.org/3/discover/movie`,
+        params: {
+          api_key: "25349d5497c8655f081fc1abfbd5aa08",
+          language: "es-ES",
+          sort_by: "popularity.desc",
+          page: currentPage,
+          with_genres: id,
+        },
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      };
+      const response = await axios.request(options);
   
-      const data = await response.json();
+      const data = response.data;
       setSearchResults(data.results);
       setTotalPages(data.total_pages);
     } catch (error) {
       console.log(error);
     }
   };
+      
   const handleFirst = () => {
     setCurrentPage(1);
   };
