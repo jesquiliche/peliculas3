@@ -50,7 +50,7 @@ const Home = () => {
   }, [currentPage]);
 
   return (
-    <div className="container-fluid my-4 mt-5  col-lg-12 mx-auto">
+    <div className="container my-4 mt-5  col-lg-12 mx-auto">
       <div className="row ">
         <div className="col">
           <div className="py-2 p-4 mt-3">
