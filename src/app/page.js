@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <main className={styles.main}>
-      <img src='/img/backdrop.jpg' width="100%"/>
+     {/* <img src='/img/backdrop.jpg' width="100%"/> */}
      <CargarPeliculas/>
     
     </main>
