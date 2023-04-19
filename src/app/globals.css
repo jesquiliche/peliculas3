@@ -90,6 +90,11 @@ h4 {
 
 }
 
+.dropdown-toggle a{
+   color: white;
+}
+
+
 @media screen and (max-width: 768px) {
   /* Estilos que se aplicarán cuando la resolución sea menor o igual a 768px */
   .card-portada {
