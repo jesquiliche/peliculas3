@@ -39,7 +39,8 @@ const Home = () => {
     setCurrentPage(currentPage + 1);
   };
 
-  const handleSearchButtonClick = () => {
+  const handleSearchFormSubmit = (e) => {
+    e.preventDefault();
     setCurrentPage(1);
     handleSearch();
   };
@@ -55,61 +56,57 @@ const Home = () => {
           <div className="py-2 p-4 mt-3">
             <h1 className="text-center mb-4 mt-3">Busca películas</h1>
 
-            <label>Por género,título o director</label>
-
-            <div className="input-group mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Buscar por título, género o director"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <button
-                className="btn btn-primary ml-2 btn-sm"
-                type="button"
-                onClick={handleSearchButtonClick}
-              >
-                Buscar
-              </button>
-            </div>
+            <form onSubmit={handleSearchFormSubmit} className="col-lg-4 mx-auto">
+              <div className="input-group mb-3">
+                <input
+                  type="text"
+                  className="form-control mx-2"
+                  placeholder="Buscar por título, género o director"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <button className="btn btn btn-secondary ml-2 btn-sm" type="submit">
+                  Buscar
+                </button>
+              </div>
+            </form>
           </div>
           <div className="container-fluid mt-5 btn-sm mx-auto">
-          <div className="row col-sm-3 mx-auto text-center">
-            <div className="btn-group mx-auto">
-              <button
-                className="btn btn-outline-dark btn-sm mx-auto"
-                onClick={()=>setCurrentPage(1)}
-                disabled={currentPage === 1}
-              >
-                {"<<"}
-              </button>
-              <button
-                className="btn btn-outline-dark btn-sm mx-auto"
-                onClick={handlePrevPage}
-                disabled={currentPage === 1}
-              >
-                {"<"}
-              </button>
-              <div className="d-flex align-items-center mx-2">
-                {currentPage} de {totalPages + " "}
+            <div className="row col-sm-3 mx-auto text-center">
+              <div className="btn-group mx-auto">
+                <button
+                  className="btn btn-outline-dark btn-sm mx-auto"
+                  onClick={() => setCurrentPage(1)}
+                  disabled={currentPage === 1}
+                >
+                  {"<<"}
+                </button>
+                <button
+                  className="btn btn-outline-dark btn-sm mx-auto"
+                  onClick={handlePrevPage}
+                  disabled={currentPage === 1}
+                >
+                  {"<"}
+                </button>
+                <div className="d-flex align-items-center mx-2">
+                  {currentPage} de {totalPages + " "}
+                </div>
+                <button
+                  className="btn btn-outline-dark btn-sm mx-auto"
+                  onClick={handleNextPage}
+                  disabled={currentPage === totalPages}
+                >
+                  {">"}
+                </button>
+                <button
+                  className="btn btn-outline-dark btn-sm mx-auto"
+                  onClick={() => setCurrentPage(totalPages)}
+                  disabled={currentPage === totalPages}
+                >
+                  {">>"}
+                </button>
               </div>
-              <button
-                className="btn btn-outline-dark btn-sm mx-auto"
-                onClick={handleNextPage}
-                disabled={currentPage === totalPages}
-              >
-                {">"}
-              </button>
-              <button
-                className="btn btn-outline-dark btn-sm mx-auto"
-                onClick={()=>setCurrentPage(totalPages)}
-                disabled={currentPage === totalPages}
-              >
-                {">>"}
-              </button>
             </div>
-</div>
             <div className="row mt-5">
               {searchResults.map((p) => (
                 <div
