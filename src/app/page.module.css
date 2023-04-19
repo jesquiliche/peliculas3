@@ -3,7 +3,8 @@
   flex-direction: column;
   justify-content: space-between;
   background-image: url('/img/backdrop.jpg');
-  background-size: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
 
   align-items: center;
   padding: 0rem;

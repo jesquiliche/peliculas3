@@ -29,9 +29,12 @@ export default function RootLayout({ children }) {
       <body>
      
         <Navigation />
-        {children}
 
-       
+        {children}
+        
+       <footer className="bg-dark text-white  px-4 py-2 text-center">
+          <h5>Copyright Jesús Quintana</h5>
+       </footer>
       </body>
     </html>
   );

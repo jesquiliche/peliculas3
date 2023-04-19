@@ -1,10 +1,21 @@
 .container-text {
   position: absolute;
   z-index: 0;
-  top: 210px;
-  left: 340px;
+  top: 200px;
+  left: 25%;
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 0.8;
+  padding: 10px;
+  text-align: center; /* Agrega esta línea */
+}
+
+.container-text-2 {
+  position: absolute;
+  z-index: 0;
+  top: -460px;
+  
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0.6;
   padding: 10px;
   text-align: center; /* Agrega esta línea */
 }
@@ -90,7 +101,7 @@ h4 {
 @media screen and (min-width: 768px) and (orientation: landscape) {
 .card-portada {
   position: absolute;
-  top:230px;
+  top:190px;
   left: 5%;
   margin: auto;
   border-radius: 20px;

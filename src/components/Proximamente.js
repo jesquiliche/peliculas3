@@ -11,7 +11,7 @@ const fetchPeliculas = async () => {
     return data;
   } catch (error) {
     console.log(error);
-  }
+  }s
 };
   
 const Proximamente = async () => {

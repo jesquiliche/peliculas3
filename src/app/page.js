@@ -13,6 +13,7 @@ export default function Home() {
      {/* <img src='/img/backdrop.jpg' width="100%"/> */}
      <CargarPeliculas/>
     
+    
     </main>
   );
 }
